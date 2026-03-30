@@ -1,0 +1,10 @@
+{
+    "risk_score": 85,
+    "risk_level": "CRITICAL",
+    "indicators": [
+        "High Payout Ratio (100.00%): Likely paying old investors with new funds.",
+        "Wealth Concentration (100.00%): Top 5 wallets control most liquidity.",
+        "Circular Flows: Detected potential wash-trading or capital recycling."
+    ],
+    "timestamp": "2026-03-30T12:46:03.353953"
+}

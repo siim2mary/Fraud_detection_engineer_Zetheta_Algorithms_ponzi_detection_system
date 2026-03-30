@@ -1,0 +1,40 @@
+digraph "Smart Ponzi Detection Framework" {
+	graph [fontcolor="#2D3436" fontname="Sans-Serif" fontsize=15 label="Smart Ponzi Detection Framework" nodesep=0.60 pad=2.0 rankdir=LR ranksep=0.75 splines=ortho]
+	node [fixedsize=true fontcolor="#2D3436" fontname="Sans-Serif" fontsize=13 height=1.4 imagescale=true labelloc=b shape=box style=rounded width=1.4]
+	edge [color="#7B8894"]
+	subgraph "cluster_Layer A: Data Ingestion" {
+		graph [bgcolor="#E5F5FD" fontname="Sans-Serif" fontsize=12 label="Layer A: Data Ingestion" labeljust=l pencolor="#AEB6BE" rankdir=LR shape=box style=rounded]
+		b8f2d36eab0848b29954d1848525ff03 [label="On-Chain Data
+(TX/Events)" height=2.3 image="D:\Onchain_ponzi_detection\.venv\Lib\site-packages\resources/onprem/database\postgresql.png" shape=none]
+		a721f796f7e44f2dbe5e885df99fbc81 [label="Event Logs
+(In/Outflow)" height=2.3 image="D:\Onchain_ponzi_detection\.venv\Lib\site-packages\resources/onprem/database\postgresql.png" shape=none]
+	}
+	subgraph "cluster_Layer B: Analytical Engines" {
+		graph [bgcolor="#E5F5FD" fontname="Sans-Serif" fontsize=12 label="Layer B: Analytical Engines" labeljust=l pencolor="#AEB6BE" rankdir=LR shape=box style=rounded]
+		subgraph "cluster_Processing Logic" {
+			graph [bgcolor="#EBF3E7" fontname="Sans-Serif" fontsize=12 label="Processing Logic" labeljust=l pencolor="#AEB6BE" rankdir=LR shape=box style=rounded]
+			cb0c4f3353f74ef39f879e834f39cb10 [label="Detection Engine" height=1.9 image="D:\Onchain_ponzi_detection\.venv\Lib\site-packages\resources/programming/language\python.png" shape=none]
+		}
+		"48814ad7dc614d3f8342789a22c4809a" [label="Sustainability Engine
+(Rs Ratio)" height=2.3 image="D:\Onchain_ponzi_detection\.venv\Lib\site-packages\resources/onprem/analytics\spark.png" shape=none]
+		ad8114f376a44e97bfda8183cd61b1d6 [label="Concentration Engine
+(Gini Coeff)" height=2.3 image="D:\Onchain_ponzi_detection\.venv\Lib\site-packages\resources/onprem/analytics\spark.png" shape=none]
+		ebe7aba279f0406db0e4d0d4c4584d6b [label="Logic Auditor
+(Referral Signs)" height=2.3 image="D:\Onchain_ponzi_detection\.venv\Lib\site-packages\resources/onprem/analytics\spark.png" shape=none]
+	}
+	subgraph "cluster_Layer C: Scoring" {
+		graph [bgcolor="#E5F5FD" fontname="Sans-Serif" fontsize=12 label="Layer C: Scoring" labeljust=l pencolor="#AEB6BE" rankdir=LR shape=box style=rounded]
+		"3f3eb9f5ee3b46199dfb14953ca4ab02" [label="Risk Score (0-100)" height=1.9 image="D:\Onchain_ponzi_detection\.venv\Lib\site-packages\resources/generic/device\tablet.png" shape=none]
+		"1f564d3dc27746b381aceb214fc7e0c5" [label="Early Warning
+(Runway Alerts)" height=2.3 image="D:\Onchain_ponzi_detection\.venv\Lib\site-packages\resources/generic/network\firewall.png" shape=none]
+	}
+	b8f2d36eab0848b29954d1848525ff03 -> cb0c4f3353f74ef39f879e834f39cb10 [label="Raw Logs" dir=forward fontcolor="#2D3436" fontname="Sans-Serif" fontsize=13]
+	a721f796f7e44f2dbe5e885df99fbc81 -> cb0c4f3353f74ef39f879e834f39cb10 [label="Raw Logs" dir=forward fontcolor="#2D3436" fontname="Sans-Serif" fontsize=13]
+	cb0c4f3353f74ef39f879e834f39cb10 -> "48814ad7dc614d3f8342789a22c4809a" [dir=forward fontcolor="#2D3436" fontname="Sans-Serif" fontsize=13]
+	cb0c4f3353f74ef39f879e834f39cb10 -> ad8114f376a44e97bfda8183cd61b1d6 [dir=forward fontcolor="#2D3436" fontname="Sans-Serif" fontsize=13]
+	cb0c4f3353f74ef39f879e834f39cb10 -> ebe7aba279f0406db0e4d0d4c4584d6b [dir=forward fontcolor="#2D3436" fontname="Sans-Serif" fontsize=13]
+	"48814ad7dc614d3f8342789a22c4809a" -> "3f3eb9f5ee3b46199dfb14953ca4ab02" [dir=forward fontcolor="#2D3436" fontname="Sans-Serif" fontsize=13]
+	ad8114f376a44e97bfda8183cd61b1d6 -> "3f3eb9f5ee3b46199dfb14953ca4ab02" [dir=forward fontcolor="#2D3436" fontname="Sans-Serif" fontsize=13]
+	ebe7aba279f0406db0e4d0d4c4584d6b -> "3f3eb9f5ee3b46199dfb14953ca4ab02" [dir=forward fontcolor="#2D3436" fontname="Sans-Serif" fontsize=13]
+	"3f3eb9f5ee3b46199dfb14953ca4ab02" -> "1f564d3dc27746b381aceb214fc7e0c5" [dir=forward fontcolor="#2D3436" fontname="Sans-Serif" fontsize=13]
+}
